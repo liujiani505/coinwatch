@@ -20,7 +20,7 @@ $coinwatch-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$coinwatch-theme: mat.define-light-theme((
+$coinwatch-theme: mat.define-dark-theme((
   color: (
     primary: $coinwatch-primary,
     accent: $coinwatch-accent,
