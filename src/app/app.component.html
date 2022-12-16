@@ -3,7 +3,7 @@
 <p>
   <mat-toolbar>
     <span>coinwatch</span>
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-select (valueChange)="sendCurrency($event)" class="text-sm" [(ngModel)]="selectedcurrency">
         <mat-option selected value="USD">USD</mat-option>
         <mat-option value="EUR">EUR</mat-option>
@@ -11,3 +11,5 @@
     </mat-form-field>
   </mat-toolbar>
 </p>
+
+<router-outlet></router-outlet>
