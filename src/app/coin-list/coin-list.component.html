@@ -5,7 +5,20 @@
         </div>
         <div class="sub-header">
             <marquee behavior="scroll" onmouseover="stop()" onmouseout="start()" loop="infinite" direction="left">
-                <div class="row"></div>
+                <div class="row">
+                    <ng-container *ngFor="let row of bannerData">
+                        <div class="col-1">
+                            <div class="card">
+                                <img [src]="row.image" width="100" class="img-fluid" alt="">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{row.symbol | uppercase}}</h3>
+                                    <h5>{{row.market_cap_change_percentage_24h | number: '1.0-2'}}%</h5>
+                                    <p class="card-text">{{row.current_price | currency:"USD"}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
             </marquee>
         </div>
     </div>
