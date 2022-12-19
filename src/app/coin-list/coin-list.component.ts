@@ -8,6 +8,9 @@ import { ApiService } from '../service/api.service';
 })
 export class CoinListComponent implements OnInit {
 
+  bannerData: any =[];
+
+
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
@@ -18,7 +21,8 @@ export class CoinListComponent implements OnInit {
   getBannerData(){
     this.api.getTrendingCurrency('USD')
     .subscribe(res => {
-      console.log(res)
+      console.log(res);
+      this.bannerData = res;
     })
   }
   
