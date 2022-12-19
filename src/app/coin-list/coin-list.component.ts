@@ -11,5 +11,4 @@ export class CoinListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
