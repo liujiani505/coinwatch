@@ -7,12 +7,16 @@
     height:40%;
     text-align: center;
     color: white;
-    // h2{
-    //     font-weight: 700;
-    //     font-size: 36px;
-    //     margin-top: 15px;
-    //     letter-spacing: 0.05em;
-    //    }
+    h1{
+        font-weight: 900;
+        font-size: 36px;
+        margin-top: 15px;
+        letter-spacing: 0.05em;
+    }
+    h1 span{
+        size: 80px;
+        color: #B7F200;
+    }
 }
 
 .subheader{
@@ -44,6 +48,9 @@
     p{
         font-weight: 500;
     }
+    .card-text{
+        color:#727272;
+    }
 }
 
 
@@ -66,5 +73,5 @@ mat-paginator{
 }
 
 mat-form-field{
-    margin-top: 50px;;
+    margin-top: 20px;
 }
