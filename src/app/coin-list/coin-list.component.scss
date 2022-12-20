@@ -1,5 +1,5 @@
 .banner{
-    background-color: #2b2b2b;
+    background-color: #242424;
     padding: 20px;
 }
 
@@ -7,12 +7,12 @@
     height:40%;
     text-align: center;
     color: white;
-    h2{
-        font-weight: 700;
-        font-size: 36px;
-        margin-top: 15px;
-        letter-spacing: 0.05em;
-       }
+    // h2{
+    //     font-weight: 700;
+    //     font-size: 36px;
+    //     margin-top: 15px;
+    //     letter-spacing: 0.05em;
+    //    }
 }
 
 .subheader{
@@ -25,13 +25,16 @@
     border:0;
     background: transparent;
     color: white;
-    margin: 40px;
+    margin: 20px;
     width: 120px;
-    height: 200px;
+    height: 100px;
     text-align: center;
-    img{
-        width: 50px;
-        margin: 0 auto;
+    // img{
+    //     width: 50px;
+    //     margin: 0 auto;
+    // }
+    h2{
+        color:#B7F200;
     }
     h5{
         font-weight: 500;
@@ -41,4 +44,27 @@
     p{
         font-weight: 500;
     }
+}
+
+
+table {
+    width: 100%;
+    background-color: #212121;
+}
+  
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+  
+td, th {
+    width: 25%;
+}
+
+mat-paginator{
+    background-color: #212121;
+}
+
+mat-form-field{
+    margin-top: 50px;;
 }
