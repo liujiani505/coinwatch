@@ -1,1 +1,16 @@
-<p>coin-detail works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 details">
+            <div class="img">
+                <!-- <img [src]="coinData?.image?.small" alt=""> -->
+                <h1 class="name" style="font-size:40px; font-weight: 900;">{{coinData?.name}}</h1>
+                <h4 style="font-weight: 300;" [innerHtml]="coinData?.description?.en.split('. ')[0]"></h4>
+                <div class="more-details">
+                    <span class="title">Rank: </span> <span class="value">{{coinData?.market_cap_rank}}</span><br>
+                    <span class="title">Current Price: </span> <span class="value">{{coinData?.market_data.current_price.usd | currency}}</span><br>
+                    <span class="title">Market Cap: </span> <span class="value">{{coinData?.market_data.market_cap.usd | currency}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
