@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../service/api.service';
 import { ChartConfiguration, ChartType} from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-coin-detail',
@@ -27,7 +28,7 @@ export class CoinDetailComponent implements OnInit {
         pointHoverBorderColor: '#009688',
       }
     ],
-    labels: []
+    labels:[]
   }
 
   public lineChartOptions: ChartConfiguration['options'] ={
@@ -41,6 +42,9 @@ export class CoinDetailComponent implements OnInit {
     }
   }
 
+  public lineChartType: ChartType = 'line';
+  @ViewChild(BaseChartDirective) lineChart !: BaseChartDirective;
+
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
@@ -48,6 +52,7 @@ export class CoinDetailComponent implements OnInit {
       this.coinId = val['id'];
     })
     this.getCoinData();
+    this.getGraphData();
   }
 
   getCoinData(){
@@ -55,6 +60,13 @@ export class CoinDetailComponent implements OnInit {
     .subscribe(res => {
       this.coinData = res;
       console.log(this.coinData)
+    })
+  }
+
+  getGraphData(){
+    this.api.getGraphicalCurrencyData(this.coinId, "USD", 1)
+    .subscribe(res => {
+      console.log(res)
     })
   }
 
