@@ -13,7 +13,7 @@
         margin-top: 15px;
         letter-spacing: 0.05em;
     }
-    h1 span{
+    h1 span {
         size: 80px;
         color: #B7F200;
     }
@@ -57,21 +57,15 @@
 table {
     width: 100%;
     background-color: #363636;
+    th{
+        font-size: 16px;
+        color:#0095f2;
+    }
+    tr.coin-detail-row:hover{
+        background: rgb(64, 64, 64);
+    }
 }
-  
-.mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-}
-  
-// td, th {
-//     width: 25%;
-// }
 
-th{
-    font-size: 16px;
-    color:#0095f2;
-}
 
 mat-paginator{
     background-color: #212121;

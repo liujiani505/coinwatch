@@ -71,7 +71,7 @@ export class CoinDetailComponent implements OnInit {
       setTimeout(()=>{
         this.lineChart.chart?.update();
       }, 200)
-      console.log(res)
+      // console.log(res)
       this.lineChartData.datasets[0].data = res.prices.map((a:any) => {
         return a[1];
       });
