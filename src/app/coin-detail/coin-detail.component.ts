@@ -55,11 +55,11 @@ export class CoinDetailComponent implements OnInit {
       this.coinId = val['id'];
     })
     this.getCoinData();
-    this.getGraphData();
+    this.getGraphData(this.days);
     this.currencyService.getCurrency()
     .subscribe( val => {
       this.currency = val;
-      this.getGraphData();
+      this.getGraphData(this.days);
       this.getCoinData();
     })
   }
@@ -89,8 +89,9 @@ export class CoinDetailComponent implements OnInit {
     })
   }
 
-  getGraphData(){
-    this.api.getGraphicalCurrencyData(this.coinId, this.currency, 1)
+  getGraphData(days: number){
+    this.days = days
+    this.api.getGraphicalCurrencyData(this.coinId, this.currency, days)
     .subscribe(res => {
       setTimeout(()=>{
         this.lineChart.chart?.update();
@@ -102,7 +103,7 @@ export class CoinDetailComponent implements OnInit {
       this.lineChartData.labels = res.prices.map((a:any) => {
         let date = new Date(a[0]);
         let time = date.getHours() > 12 ? `${date.getHours() -12} : ${date.getMinutes()} PM` : `${date.getHours()} : ${date.getMinutes()} AM`
-        return this.days === 1 ? time : date.toLocaleDateString();
+        return days === 1 ? time : date.toLocaleDateString();
       })
     })
   }
