@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../service/api.service';
 import { ChartConfiguration, ChartType} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import { CurrencyService } from '../service/currency.service';
+import { CurrencyService } from '../service/currency.service'; 
 
 @Component({
   selector: 'app-coin-detail',
@@ -60,14 +60,32 @@ export class CoinDetailComponent implements OnInit {
     .subscribe( val => {
       this.currency = val;
       this.getGraphData();
+      this.getCoinData();
     })
   }
 
   getCoinData(){
     this.api.getCurrencyById(this.coinId)
     .subscribe(res => {
-      this.coinData = res;
       console.log(this.coinData)
+      switch (this.currency){
+        case "EUR":
+          res.market_data.current_price.usd = res.market_data.current_price.eur
+          res.market_data.market_cap.usd = res.market_data.market_cap.eur
+          break;
+        case "JPY":
+          res.market_data.current_price.usd = res.market_data.current_price.jpy
+          res.market_data.market_cap.usd = res.market_data.market_cap.jpy
+          break;
+        case "GBP":
+          res.market_data.current_price.usd = res.market_data.current_price.gbp
+          res.market_data.market_cap.usd = res.market_data.market_cap.gbp
+          break;
+        default:
+          res.market_data.current_price.usd = res.market_data.current_price.usd
+          res.market_data.market_cap.usd = res.market_data.market_cap.usd
+      }
+      this.coinData = res;
     })
   }
 
