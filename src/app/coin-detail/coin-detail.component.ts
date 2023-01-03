@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../service/api.service';
 import { ChartConfiguration, ChartType} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { CurrencyService } from '../service/currency.service';
 
 @Component({
   selector: 'app-coin-detail',
@@ -30,7 +31,7 @@ export class CoinDetailComponent implements OnInit {
 
       }
     ],
-    labels:[]
+    labels:[] 
   }
 
   public lineChartOptions: ChartConfiguration['options'] ={
@@ -47,7 +48,7 @@ export class CoinDetailComponent implements OnInit {
   public lineChartType: ChartType = 'line';
   @ViewChild(BaseChartDirective) lineChart !: BaseChartDirective;
 
-  constructor(private api: ApiService, private activatedRoute: ActivatedRoute ) { }
+  constructor(private api: ApiService, private activatedRoute: ActivatedRoute, private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(val =>{
@@ -55,6 +56,11 @@ export class CoinDetailComponent implements OnInit {
     })
     this.getCoinData();
     this.getGraphData();
+    this.currencyService.getCurrency()
+    .subscribe( val => {
+      this.currency = val;
+      this.getGraphData();
+    })
   }
 
   getCoinData(){
@@ -66,7 +72,7 @@ export class CoinDetailComponent implements OnInit {
   }
 
   getGraphData(){
-    this.api.getGraphicalCurrencyData(this.coinId, "USD", 1)
+    this.api.getGraphicalCurrencyData(this.coinId, this.currency, 1)
     .subscribe(res => {
       setTimeout(()=>{
         this.lineChart.chart?.update();
