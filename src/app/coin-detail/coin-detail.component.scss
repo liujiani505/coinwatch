@@ -7,12 +7,25 @@
     margin-left:50px;
 }
 
-.value{
-    color: #B7F200;
-    font-weight: 300;
-}
 
 .title{
     font-weight:700;
+}
+
+.btn-custom {
+    color:#fff;
+    background: transparent;
+    font-weight: 400;
+    font-size: 12px;
+    border: 1px solid #fff;
+    width: 20%;
+}
+
+.btn-custom:focus {
+    background: #B7F200;
+    color:black;
+    font-weight: 400;
+    font-size: 12px;
+    border: 1px solid #B7F200;
 }
 
