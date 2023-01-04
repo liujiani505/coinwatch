@@ -29,3 +29,18 @@
     border: 1px solid #CDDC39;
 }
 
+$small: 320px;
+$medium: 480px;
+
+@media screen and (min-width: $small) and (max-width: $medium) {
+    .details{
+        margin-left:10px;
+    }
+    .col-md-9{
+        margin-top: 50px;
+    }
+    .btn-custom {
+        width: 30%;
+        padding: 3px;
+    }
+}

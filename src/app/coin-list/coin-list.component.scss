@@ -25,6 +25,7 @@
     align-items: center;
 }
 
+
 .card{
     border:0;
     background: transparent;
@@ -33,23 +34,12 @@
     width: 120px;
     height: 100px;
     text-align: center;
-    // img{
-    //     width: 50px;
-    //     margin: 0 auto;
-    // }
     h2{
         color:#CDDC39;
     }
-    h5{
-        font-weight: 500;
-        font-size: 1em;
-        color:#f23c00;
-    }
-    p{
-        font-weight: 500;
-    }
     .card-text{
         color:#727272;
+        font-weight: 500;
     }
 }
 
@@ -73,4 +63,32 @@ mat-paginator{
 
 mat-form-field{
     margin-top: 20px;
+}
+
+
+$small: 320px;
+$medium: 480px;
+
+@media screen and (min-width: $small) and (max-width: $medium) {
+
+    .card{
+        .card-title{
+            font-size: 12px;
+        }
+        .card-text{
+            font-size: 12px;
+        }
+    }
+
+    table {
+        th{
+            font-size: 12px;
+        }
+        td{
+            font-size: 12px;
+        }
+        img{
+            width:30%;
+        }
+    }
 }

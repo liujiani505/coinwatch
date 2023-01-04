@@ -9,10 +9,8 @@
                     <ng-container *ngFor="let row of bannerData">
                         <div class="col-1">
                             <div class="card">
-                                <!-- <img [src]="row.image" width="100" class="img-fluid" alt=""> -->
                                 <div class="card-body">
                                     <h2 class="card-title">{{row.symbol | uppercase}}</h2>
-                                    <!-- <h5>{{row.market_cap_change_percentage_24h | number: '1.0-2'}}%</h5> -->
                                     <p class="card-text">{{row.current_price | currency: currency}}</p>
                                 </div>
                             </div>
